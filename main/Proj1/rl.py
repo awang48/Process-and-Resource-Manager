@@ -12,8 +12,10 @@ class rl:
                 return i[0]
 
     # Removes a process from the ready list
+    # Returns 1 on success, 0 on failure.
     def remove(self,p):
         for i in self._rl:
             if p in i:
                 i.pop(i.index(p))
-                break
+                return None
+        raise ValueError("Process" + str(p) + "is not in readylist")

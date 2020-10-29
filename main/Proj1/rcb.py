@@ -15,17 +15,28 @@ class rcb:
     def getUnit(self):
         return self._unit
 
-    # Returns True if this resource has enough units to allocate, False otherwise.
-    def canAllocate(self,u):
-        return True if (self._state == 'f' and self._unit >= u) else False
+    # Returns current state of resource
+    def getState(self):
+        return self._state
     
-    # Allocating operation
+    # Allocating operation. Dedicates units and changes state to 'a'. Raises ValueError if desired # units are not available.
     def allocate(self,u):
+        if (self._unit - u < 0):
+            raise ValueError("Resource does not have enough units: Requested" + str(u) +  ", Available" + str(self._unit))
         self._unit -= u
         self._state = 'a'
         return None
 
+    # Releasing operation. Releases units and changes state to 'f'. Raises ValueError if releasing too many units.
+    def release(self, u):
+        if (self._unit + u > self._capacity):
+            raise ValueError("Releasing too many units. Theoretical total:" +  str(u) +  " Max capcacity:" + str(self._capacity))
+        self._unit += u
+        self._state = 'f'
+        return None
+
+
     # Adds (process, units) to the waitlist
-    def addWaitlist(self,p):
-        self._waitlist.append(p)
+    def addWaitlist(self, p, u):
+        self._waitlist.append(tuple([p,u]))
         return None
