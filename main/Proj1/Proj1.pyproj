@@ -4,13 +4,15 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>5996ab4a-9e39-452d-b46c-8ae6699566f1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>main.py</StartupFile>
+    <StartupFile>test2.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>Proj1</Name>
     <RootNamespace>Proj1</RootNamespace>
+    <IsWindowsApplication>True</IsWindowsApplication>
+    <InterpreterId>Global|PythonCore|3.8</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,6 +27,12 @@
     <Compile Include="manager.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="test2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="pcb.py">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +42,9 @@
     <Compile Include="rl.py">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.8" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
