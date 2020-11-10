@@ -85,12 +85,15 @@ For rl, self._currRun = currently running process, self._rl\[0-2\] are levels of
 the highest priority.  
 
 ## Opcodes + Arg(s)
-```bash
-in         -    Initiates a new instance of the manager. Maximum of 16 processes, including process 0. Maximum of 4 resources, zero-indexed.  
+```
+in         -    Initiates a new instance of the manager. Maximum of 16 processes,  
+				including process 0. Maximum of 4 resources, zero-indexed.  
 cr <p>     -    Creates a new process at priority level <p>. <p> must be either 0, 1, or 2.  
-de <i>     -    Destroys process <i>. <i> can not be 0. Recursively destroys <i> and all of its children, deallocating resources as necessary.  
+de <i>     -    Destroys process <i>. <i> can not be 0. Recursively destroys <i> and all of  
+				its children, deallocating resources as necessary.  
 rq <r> <n> -    Requests <n> units of resource <r> and allocates, if possible.  
-rl <r> <n> -    Releases <n> units of resource <r> and allocates to the next process on the waiting list that is requesting an equal or less amount of units.  
+rl <r> <n> -    Releases <n> units of resource <r> and allocates to the next process on the  
+				waiting list that is requesting an equal or less amount of units.  
 to         -    Times out currently running process and runs next process on same priority level.  
 
 ```
