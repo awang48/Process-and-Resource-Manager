@@ -46,7 +46,7 @@ class manager:
         """
         p = self._rl.getRun()
         if self._rl.getRun() == 0 or u <= 0:
-            return -1
+            return "-1"
         if self._pcb[self._rl.getRun()].hasResource(r):
             raise ValueError("Resource already requested")
         if r < 0 or r > 3:
@@ -85,7 +85,7 @@ class manager:
         if p == None:
             p = self._rl.getRun()
         if u <= 0:
-            return
+            return "-1"
         if r < 0 or r > 3:
             raise ValueError("Resource does not exist")
         if not self._pcb[p].hasResource(r):
@@ -169,7 +169,7 @@ class manager:
             self._pcb[p] = None
             return None
         if p == 0:
-            return -1
+            return "-1"
         if (not self._pcb[self._rl.getRun()].isChild(p)) and p != self._rl.getRun():
             raise ValueError('Process is not a child of the current process.')
         s = recurDel(p)
